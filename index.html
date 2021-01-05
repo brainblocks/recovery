@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Recover Wallet</title>
+        <script src="js/bundle.js"></script>
+        <script src="js/recover.js"></script>
+    </head>
+    <body>
+        <h1>Wallet Recovery</h1>
+        <div>
+            <p>Enter Encrypted Wallet:</p>
+            <textarea id="cipher" rows="10" cols="80"></textarea>
+        </div>
+        <br>
+        <div>
+            <p>Enter Password:</p>
+            <input type="password" id="password" placeholder="password">
+        </div>
+        <br>
+        <div>
+            <button type="button" name="button" onclick="recoverWallet()">Process</button>
+        </div>
+        <br>
+        <div>
+            <p id="output"></p>
+        </div>
+    </body>
+</html>
