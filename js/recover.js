@@ -1,14 +1,16 @@
-function recoverWallet() {
+async function recoverWallet() {
     const CIPHERTEXT = document.getElementById("cipher").value;
     const PASSWORD = document.getElementById("password").value;
     const cachedWallet = new Wallet(PASSWORD);
     cachedWallet.lightWallet(true);
-    cachedWallet.load(CIPHERTEXT);
     try {
-        const seed = cachedWallet.getSeed(PASSWORD);
-        document.getElementById("output").innerHTML = `Seed Found! ${ seed }`;
+        cachedWallet.load(CIPHERTEXT);
     } catch(err) {
         console.log(err);
-        alert("Failed to decrypt using password.");
+        window.alert("Incorrect password.");
+        return;
     }
+    // display seed to user
+    const seed = await cachedWallet.getSeed(PASSWORD);
+    document.getElementById("output").innerHTML = `Seed Found! ${ seed }`;
 }
